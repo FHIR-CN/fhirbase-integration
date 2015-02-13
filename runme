@@ -1,0 +1,37 @@
+#!/bin/bash
+
+#git submodule init
+#git submodule update
+
+echo '### Install fhirbase'
+
+source .env
+
+#cd fhirbase && source cfg/local_cfg.sh && env PGPORT=$DBPORT ./install-postgres
+
+source .env
+
+#cd fhirbase && ./runme integrate
+
+#psql -d postgres -c "create database $DB"
+#psql -c "select generate.generate_tables()"
+
+#createuser -s fhirbase
+#psql -c "alter user fhirbase with password 'fhirbase'"
+
+echo '### Install fhirplace'
+
+
+sudo apt-get -qy install git build-essential
+sudo apt-get install -qy software-properties-common curl
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get -qq update
+sudo echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
+sudo apt-get install -qy oracle-java7-installer
+
+mkdir -p ~/bin
+curl https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein > ~/bin/lein && chmod a+x ~/bin/lein
+
+export PATH=$PATH:~/bin
+cd fhirplace && lein deps || echo 'ups install lein'
+
