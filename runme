@@ -7,17 +7,17 @@ echo '### Install fhirbase'
 
 source .env
 
-#cd fhirbase && source cfg/local_cfg.sh && env PGPORT=$DBPORT ./install-postgres
+cd fhirbase && source cfg/local_cfg.sh && env PGPORT=$DBPORT ./install-postgres
 
 source .env
 
-#cd fhirbase && ./runme integrate
+cd fhirbase && ./runme integrate
 
-#psql -d postgres -c "create database $DB"
-#psql -c "select generate.generate_tables()"
+psql -d postgres -c "create database $DB"
+psql -c "select generate.generate_tables()"
 
-#createuser -s fhirbase
-#psql -c "alter user fhirbase with password 'fhirbase'"
+createuser -s fhirbase
+psql -c "alter user fhirbase with password 'fhirbase'"
 
 echo '### Install fhirplace'
 
@@ -33,5 +33,5 @@ mkdir -p ~/bin
 curl https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein > ~/bin/lein && chmod a+x ~/bin/lein
 
 export PATH=$PATH:~/bin
-cd fhirplace && lein deps || echo 'ups install lein'
 
+cd fhirplace && git submodule init && git submodule update && lein deps || echo 'ups install lein'

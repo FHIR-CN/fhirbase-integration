@@ -4,3 +4,6 @@
 [submodule "fhirplace"]
 	path = fhirplace
 	url = https://github.com/fhirbase/fhirplace.git
+[submodule "fhirface"]
+	path = fhirface
+	url = https://github.com/fhirbase/fhirface
