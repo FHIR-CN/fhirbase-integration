@@ -1,0 +1,6 @@
+[submodule "fhirbase"]
+	path = fhirbase
+	url = https://github.com/fhirbase/fhirbase.git
+[submodule "fhirplace"]
+	path = fhirplace
+	url = https://github.com/fhirbase/fhirplace.git
