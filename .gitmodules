@@ -7,3 +7,6 @@
 [submodule "fhirface"]
 	path = fhirface
 	url = https://github.com/fhirbase/fhirface
+[submodule "hostel"]
+	path = hostel
+	url = https://github.com/fhirbase/hostel.git
